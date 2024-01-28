@@ -1,14 +1,15 @@
 import User from "../models/User.js"
 
 
-export const registerUser = async(req,res) => {
+export const registerUser = async(req,res,next) => {
     try {
         const {name,email,password} =req.body;
         //check if the user exists or not
         let user = await User.findOne({email});
         if(user) {
-            return res.status(400).json({message:"User is Already Exists With this Email"})
-        }
+            //return res.status(400).json({message:"User is Already Exists With this Email"})
+            throw new Error("User is Already Exists With this Email");
+        }   
         //Create a new user
         user = await User.create({
             name,
@@ -27,8 +28,8 @@ export const registerUser = async(req,res) => {
 
 
     } catch (error) {
-        return res.status(500).json({msg:"Something went wrong"});
         
+    next(error);
     }
 }
 export {registerUser}
