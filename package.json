@@ -3,7 +3,6 @@
   "version": "1.0.0",
   "description": "",
   "main": "server.js",
-
   "scripts": {
     "start": "node -r esm server.js",
     "dev": "nodemon -r esm server.js"
@@ -15,6 +14,6 @@
     "dotenv": "^16.4.1",
     "esm": "^3.2.25",
     "express": "^4.18.2",
-    "mongoose": "^8.1.1"
+    "mongoose": "^6.9.2"
   }
 }
