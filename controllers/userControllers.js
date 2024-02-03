@@ -121,7 +121,8 @@ const updateProfilePicture = async (req, res, next) => {
           let updatedUser = await User.findById(req.user._id);
           filename = updatedUser.avatar;
           if (filename) {
-            fileRemover(filename);
+            
+            (filename);
           }
           updatedUser.avatar = req.file.filename;
           await updatedUser.save();
