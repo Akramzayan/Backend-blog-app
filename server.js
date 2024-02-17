@@ -29,7 +29,8 @@ app.get("/",(req,res) => {
     res.send("Server is Running")
 });
 app.use('/api/users',userRoutes);
-app.use('/api/post',postRoutes);
+app.use('/api/posts',postRoutes);
+
 //static assets
 app.use("/uploads",express.static(path.join(__dirname,"/uploads")));
 
