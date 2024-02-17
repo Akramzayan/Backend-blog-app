@@ -9,9 +9,18 @@ export const createPost = async (req, res, next) => {
         title: "sample title",
         caption:'sample caption',
         slug:uuidv4(),
+        body:{
+            type:"doc",
+            content:[],
+
+        },
+        photo:"",
+        user:req.user._id,
 
 
     })
+    const createdPost = await post.save();
+    return res.json(createPost)
 
  
   } catch (error) {
