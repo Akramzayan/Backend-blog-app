@@ -6,7 +6,8 @@ import path from "path";
 import { errorResponseHandler, invalidRouteHandler } from "./middleware/errorHandler.js";
 import cors from "cors";
 //Routes
-import userRoutes from "./routes/userRoutes.js";    
+import userRoutes from "./routes/userRoutes.js"; 
+import postRoutes from "./routes/postRoutes.js";  
 
 
 
@@ -28,6 +29,7 @@ app.get("/",(req,res) => {
     res.send("Server is Running")
 });
 app.use('/api/users',userRoutes);
+app.use('/api/post',postRoutes);
 //static assets
 app.use("/uploads",express.static(path.join(__dirname,"/uploads")));
 
